@@ -27,3 +27,26 @@ export const getRedCircle = () => {
   redCircle.setAttribute("stroke-width", "5");
   return redCircle;
 };
+
+export const getMarker = (x, y) => {
+  const marker = document.createElementNS(svgNS, "circle");
+  marker.setAttribute("r", "5");
+  marker.setAttribute("cx", x);
+  marker.setAttribute("cy", y);
+  marker.setAttribute("stroke", "black");
+  marker.setAttribute("fill", "white");
+  marker.setAttribute("stroke-width", "2");
+  return marker;
+};
+
+export const getLine = (startX, startY, endX, endY) => {
+  const line = document.createElementNS(svgNS, "line");
+  line.setAttribute("x1", `${startX}`);
+  line.setAttribute("x2", `${endX}`);
+  line.setAttribute("y1", `${startY}`);
+  line.setAttribute("y2", `${endY}`);
+  line.setAttribute("stroke", "black");
+  line.setAttribute("stroke-width", "2");
+  line.setAttribute("fill", "none");
+  return line;
+};

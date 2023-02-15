@@ -4,7 +4,7 @@ import { initRender } from "./chartController";
 export let dataObj = {
   data: {
     serverData: [],
-    dataStatus: false,
+    dataStatus: "000",
   },
   methods: {
     getData: () => {
@@ -20,9 +20,9 @@ export let dataObj = {
 };
 
 export function getInitData() {
-  //Init data handler and load status variables
-
-  let apiString = "/api/test";
+  //Create variables
+  const inputElement = document.getElementById("urlInput");
+  let apiString = "/default";
 
   //Function, that fetch data from a server.
   const getData = () => {
@@ -34,12 +34,19 @@ export function getInitData() {
       .then((res) => res.json())
       .then((data) => dataObj.methods.setData(data))
       .then(() => {
-        dataObj.methods.setStatus(true);
-      })
-      .then(() => {
+        dataObj.methods.setStatus("200");
         initRender();
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        dataObj.methods.setStatus("404");
+        initRender();
+      });
+  };
+
+  //Function to update URL string
+  const updateUrlString = (value) => {
+    apiString = value;
   };
 
   //-----EVENT LISTNERS-----\\
@@ -47,6 +54,9 @@ export function getInitData() {
   //Get data Button.
   document.getElementById("getDataBtn").addEventListener("click", () => {
     getData();
+  });
+  inputElement.addEventListener("input", (e) => {
+    updateUrlString(e.target.value);
   });
 
   //Set API adress
