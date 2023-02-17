@@ -6,10 +6,18 @@ export const adjusting = (data, w, h) => {
   const xDistance = w / (data.length - 1);
 
   //Finding minimum and maximum Y point values
-  const yValues = data.map((d) => d.value);
+  let yValues = data.map((d) => d.value);
+
+  //In the morning, i've found out, that almost nothing works
+  //so i have to make some quickfixes =/
+  yValues = yValues.filter(function (x) {
+    return x !== undefined;
+  });
+
   const minY = Math.min(...yValues);
   const maxY = Math.max(...yValues);
 
+  console.log(yValues);
   // Calculate the range of values for the y axis
   const yRange = maxY - minY;
 

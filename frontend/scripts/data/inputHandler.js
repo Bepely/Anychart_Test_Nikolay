@@ -22,10 +22,10 @@ export const eventManager = () => {
       .then((data) => {
         console.log(data["data"]);
         if (dataObj.data.cropDataFirst) {
-          data["data"].shift();
+          data["data"].splice(0, 1);
         }
         if (dataObj.data.cropDataLast) {
-          data["data"].pop();
+          data["data"].splice(-1, 1);
         }
         dataObj.methods.setData(data["data"]);
       })
