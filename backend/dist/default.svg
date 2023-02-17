@@ -1,0 +1,10 @@
+<svg width="1024" height="512" viewBox="0 0 1024 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="default">
+<g id="back">
+<path d="M0 0H1024V512H0V0Z" fill="#D9D9D9"/>
+<path d="M640 256C640 326.692 582.692 384 512 384C441.308 384 384 326.692 384 256C384 185.308 441.308 128 512 128C582.692 128 640 185.308 640 256Z" fill="#FFF"/>
+</g>
+<circle id="center" cx="512" cy="256" r="64" fill="#D9D9D9"/>
+<rect id="spin" x="384" y="240" width="256" height="32" fill="#D9D9D9"/>
+</g>
+</svg>

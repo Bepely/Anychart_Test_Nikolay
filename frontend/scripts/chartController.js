@@ -1,8 +1,7 @@
 import { dataObj } from "./dataController";
-import { getRedCircle, getBlueRect } from "./chart/shapes";
 import { getDefaultScreen } from "./chart/screens/defaultScreen";
 import { get404Screen } from "./chart/screens/404Screen";
-import { getLinerDiagram } from "./chart/screens/linearDgScreen";
+import { getLinearDiagram } from "./chart/screens/linearDgScreen";
 
 export function initRender() {
   //config svg container
@@ -13,7 +12,7 @@ export function initRender() {
   svg.innerHTML = "";
 
   if (dataObj.data.dataStatus === "200") {
-    getLinerDiagram(dataObj.data.serverData);
+    getLinearDiagram(dataObj.data.serverData);
   } else if (dataObj.data.dataStatus === "000") {
     getDefaultScreen();
   } else {

@@ -5,6 +5,8 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <script type="module" crossorigin src="/assets/index-eaf530b8.js"></script>
+    <link rel="stylesheet" href="/assets/index-b388e831.css">
   </head>
   <body>
     <div id="app">
@@ -16,24 +18,12 @@
       </div>
       <div id="dataControllerr">
         <div class="card">
-          <div class="card">
-            <span>Get your data from:</span>
-            <input id="urlInput" type="text" placeholder="/api/test" />
-          </div>
-          <div class="card">
-            <label for="cropToggleFirst">Remove first object</label>
-            <input
-              type="checkbox"
-              id="cropToggleFirst"
-              name="cropToggleFirst"
-            />
-            <label for="cropToggleLast">Remove last object</label>
-            <input type="checkbox" id="cropToggleLast" name="cropToggleLast" />
-          </div>
+          <span>Get your data from:</span>
+          <input id="urlInput" type="text" placeholder="/api/test" />
           <button id="getDataBtn" type="button">Get data</button>
         </div>
       </div>
     </div>
-    <script type="module" src="/main.js"></script>
+    
   </body>
 </html>
