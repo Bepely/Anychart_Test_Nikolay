@@ -20,7 +20,6 @@ export const eventManager = () => {
     fetch(apiString)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data["data"]);
         if (dataObj.data.cropDataFirst) {
           data["data"].splice(0, 1);
         }
@@ -31,7 +30,6 @@ export const eventManager = () => {
       })
       .then(() => {
         dataObj.methods.setStatus("200");
-        console.log(dataObj);
         initRender();
       })
       .catch((err) => {
@@ -52,7 +50,7 @@ export const eventManager = () => {
     dataObj.methods.setCropFirst(e);
   };
   const toggleCropLast = (e) => {
-    dataObj.methods.setCropFirst(e);
+    dataObj.methods.setCropLast(e);
   };
 
   //Add Event Listners

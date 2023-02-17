@@ -13,8 +13,6 @@ export const linearDiagram = (svg, coordinates) => {
     const endX = coordinates[i + 1][0];
     const endY = coordinates[i + 1][1];
 
-    console.log(endX, endY);
-
     //creating line
     const line = getLine(startX, startY, endX, endY);
 
@@ -30,6 +28,8 @@ export const linearDiagram = (svg, coordinates) => {
     //create an additional last marker
 
     marker = getMarker(endX, endY);
+    marker.setAttribute("class", "marker");
+
     svg.appendChild(marker);
     svg.appendChild(line);
   }

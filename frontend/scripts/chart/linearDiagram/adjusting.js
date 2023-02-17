@@ -17,7 +17,6 @@ export const adjusting = (data, w, h) => {
   const minY = Math.min(...yValues);
   const maxY = Math.max(...yValues);
 
-  console.log(yValues);
   // Calculate the range of values for the y axis
   const yRange = maxY - minY;
 
