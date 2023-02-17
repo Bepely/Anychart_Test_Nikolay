@@ -11,6 +11,11 @@ export const getMarker = (x, y) => {
   marker.setAttribute("stroke", "black");
   marker.setAttribute("fill", "black");
   marker.setAttribute("stroke-width", "2");
+
+  marker.addEventListener("mousemove", (e) =>
+    console.log("Marker mouseMove emit")
+  );
+  marker.addEventListener("mouseout", () => console.log("Maker mouseOut emit"));
   return marker;
 };
 
@@ -23,6 +28,9 @@ export const getLine = (startX, startY, endX, endY) => {
   line.setAttribute("stroke", "black");
   line.setAttribute("stroke-width", "2");
   line.setAttribute("fill", "none");
+
+  line.addEventListener("mousemove", (e) => console.log("Line mouseMove emit"));
+  line.addEventListener("mouseout", () => console.log("Line mouseOut emit"));
   return line;
 };
 

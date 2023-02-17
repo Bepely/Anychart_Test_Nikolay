@@ -1,5 +1,6 @@
 import { linearDiagram } from "../linearDiagram/chart";
 import { adjusting } from "../linearDiagram/adjusting";
+import { tooltip } from "../tooltip/tooltip";
 
 import { yAxis, xAxis } from "../linearDiagram/axes";
 export const getLinearDiagram = (data) => {
@@ -13,4 +14,5 @@ export const getLinearDiagram = (data) => {
   linearDiagram(svg, viewportConfig.coordinates);
   yAxis(svg, viewportConfig.minY, viewportConfig.maxY, 512 * 0.9);
   xAxis(svg, data, 1024, 512);
+  tooltip()
 };
