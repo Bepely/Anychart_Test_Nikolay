@@ -8,11 +8,19 @@ export const linearDiagram = (svg, coordinates) => {
     //-------------------------------------
 
     //setting start and end points
-    const startX = coordinates[i][0];
-    const startY = coordinates[i][1];
-    const endX = coordinates[i + 1][0];
-    const endY = coordinates[i + 1][1];
-
+    const startX =
+      coordinates[i][0] -
+      (coordinates[i][0] - coordinates[i][0] * 0.8) +
+      1024 * 0.1;
+    const startY =
+      coordinates[i][1] - (coordinates[i][1] - coordinates[i][1] * 0.9);
+    const endX =
+      coordinates[i + 1][0] -
+      (coordinates[i + 1][0] - coordinates[i + 1][0] * 0.8) +
+      1024 * 0.1;
+    const endY =
+      coordinates[i + 1][1] -
+      (coordinates[i + 1][1] - coordinates[i + 1][1] * 0.9);
     //creating line
     const line = getLine(startX, startY, endX, endY);
 
@@ -26,11 +34,11 @@ export const linearDiagram = (svg, coordinates) => {
 
     //if it is the last iteration of a loop
     //create an additional last marker
+    if (i == coordinates.length - 2) {
+      marker = getMarker(endX, endY);
 
-    marker = getMarker(endX, endY);
-    marker.setAttribute("class", "marker");
-
-    svg.appendChild(marker);
-    svg.appendChild(line);
+      svg.appendChild(marker);
+      svg.appendChild(line);
+    }
   }
 };

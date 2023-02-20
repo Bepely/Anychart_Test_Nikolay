@@ -11,6 +11,7 @@ export const getMarker = (x, y) => {
   marker.setAttribute("stroke", "black");
   marker.setAttribute("fill", "black");
   marker.setAttribute("stroke-width", "2");
+  marker.setAttribute("class", "marker");
 
   marker.addEventListener("mousemove", (e) =>
     console.log("Marker mouseMove emit")
@@ -28,12 +29,19 @@ export const getLine = (startX, startY, endX, endY) => {
   line.setAttribute("stroke", "black");
   line.setAttribute("stroke-width", "2");
   line.setAttribute("fill", "none");
-
-  line.addEventListener("mousemove", (e) => console.log("Line mouseMove emit"));
-  line.addEventListener("mouseout", () => console.log("Line mouseOut emit"));
   return line;
 };
 
+export const getRect = (x, y, width, height) => {
+  const rect = document.createElementNS(svgNS, "rect");
+  rect.setAttribute("x", `${x}`);
+  rect.setAttribute("y", `${y}`);
+  rect.setAttribute("width", `${width}`);
+  rect.setAttribute("height", `${height}`);
+  rect.setAttribute("stroke", "none");
+  rect.setAttribute("fill", "transparent");
+  return rect;
+};
 export const getText1 = () => {
   const text = document.createElementNS(svgNS, "text");
   return text;

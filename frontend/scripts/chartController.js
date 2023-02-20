@@ -7,8 +7,6 @@ export function initRender() {
   //config svg container
   const svg = document.getElementById("svg");
   svg.setAttribute("viewBox", "0 0 1024 512");
-  svg.style.width = "90vw";
-  svg.style.height = "40vh";
   svg.innerHTML = "";
 
   if (dataObj.data.dataStatus === "200") {
