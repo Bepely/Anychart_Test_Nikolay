@@ -35,7 +35,6 @@ export const xAxis = (svg, data, w, h) => {
     const x = (i * (w * 0.95)) / data.length + xGhost + w * 0.05;
 
     // draw the tick line
-    console.log(xGhost);
     const tick = getLine(x * 0.9, h * 0.9, x * 0.9, h * 0.9 - 5);
     svg.appendChild(tick);
 

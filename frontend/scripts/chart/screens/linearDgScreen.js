@@ -1,6 +1,7 @@
 import { linearDiagram } from "../linearDiagram/chart";
 import { adjusting } from "../linearDiagram/adjusting";
 import { getCrosshair } from "../crosshair/crosshair";
+import { getTooltip } from "../tooltip/tooltip";
 
 import { yAxis, xAxis } from "../linearDiagram/axes";
 export const getLinearDiagram = (data) => {
@@ -15,4 +16,5 @@ export const getLinearDiagram = (data) => {
   xAxis(svg, data, 1024, 512);
 
   getCrosshair(svg);
+  getTooltip(svg);
 };

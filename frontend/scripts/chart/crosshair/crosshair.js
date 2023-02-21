@@ -15,27 +15,27 @@ toggleY.addEventListener("change", () => {
 export const getCrosshair = (svg) => {
   // create triggerBox
   const triggerBox = getRect(1024 * 0.1, 0, 1024 * 0.8, 512 * 0.9);
-  triggerBox.style.cursor = "none";
+  triggerBox.style.cursor = "auto";
   svg.appendChild(triggerBox);
 
   const rectPos = triggerBox.getBoundingClientRect();
 
   // create the vertical and horizontal line and add it to the SVG
   const verticalLine = getLine(0, 0, 0, 0);
-  verticalLine.style.cursor = "none";
   const horizontalLine = getLine(0, 0, 0, 0);
-  horizontalLine.style.cursor = "none";
 
   //config Horizontal line
   horizontalLine.setAttribute("stroke", "black");
   horizontalLine.setAttribute("stroke-width", 2);
   horizontalLine.setAttribute("display", "none");
+  horizontalLine.style.pointerEvents = "none";
   svg.appendChild(horizontalLine);
 
   //config Vertical line
   verticalLine.setAttribute("stroke", "black");
   verticalLine.setAttribute("stroke-width", 2);
   verticalLine.setAttribute("display", "none");
+  verticalLine.style.pointerEvents = "none";
   svg.appendChild(verticalLine);
 
   // add event listeners to show and update the vertical line

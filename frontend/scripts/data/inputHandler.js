@@ -58,7 +58,6 @@ export const eventManager = () => {
 
   const startInterval = () => {
     currentInterval = setInterval(getData, 5000);
-    console.log(currentInterval);
   };
 
   const stopInterval = () => {
@@ -74,6 +73,7 @@ export const eventManager = () => {
       // if interval is running, stop it
       stopInterval();
       currentInterval = null;
+      startInterval();
     } else {
       // if interval is not running, start it
       startInterval();
