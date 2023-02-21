@@ -1,8 +1,18 @@
 import { getText1, getLine, getRect } from "../shapes";
+import { dataObj } from "../../dataController";
+
+let toggleX = document.getElementById("yCrosshairToggle");
+let toggleY = document.getElementById("xCrosshairToggle");
+
+toggleX.addEventListener("change", () => {
+  dataObj.methods.crosshair.setX();
+});
+toggleY.addEventListener("change", () => {
+  dataObj.methods.crosshair.setY();
+});
 
 //This script is to show tooltip, when it is hovered over the marker
-
-export const getTooltip = (svg) => {
+export const getCrosshair = (svg) => {
   // create triggerBox
   const triggerBox = getRect(1024 * 0.1, 0, 1024 * 0.8, 512 * 0.9);
   triggerBox.style.cursor = "none";
@@ -40,18 +50,26 @@ export const getTooltip = (svg) => {
       y < Math.floor(triggerBox.height.animVal.value) - 10
     ) {
       //vertical lines position
-      verticalLine.setAttribute("x1", x + 1024 * 0.1);
-      verticalLine.setAttribute("x2", x + 1024 * 0.1);
-      verticalLine.setAttribute("y1", 0);
-      verticalLine.setAttribute("y2", 512 * 0.9);
-      verticalLine.style.display = "block";
+      if (dataObj.data.crosshair.lineX) {
+        verticalLine.setAttribute("x1", x + 1024 * 0.1);
+        verticalLine.setAttribute("x2", x + 1024 * 0.1);
+        verticalLine.setAttribute("y1", 0);
+        verticalLine.setAttribute("y2", 512 * 0.9);
+        verticalLine.style.display = "block";
+      } else {
+        verticalLine.style.display = "none";
+      }
 
       //horizontal lines position
-      horizontalLine.setAttribute("x1", 0 + 1024 * 0.1);
-      horizontalLine.setAttribute("x2", 1024 - 1024 * 0.1);
-      horizontalLine.setAttribute("y1", y);
-      horizontalLine.setAttribute("y2", y);
-      horizontalLine.style.display = "block";
+      if (dataObj.data.crosshair.lineY) {
+        horizontalLine.setAttribute("x1", 0 + 1024 * 0.1);
+        horizontalLine.setAttribute("x2", 1024 - 1024 * 0.1);
+        horizontalLine.setAttribute("y1", y);
+        horizontalLine.setAttribute("y2", y);
+        horizontalLine.style.display = "block";
+      } else {
+        horizontalLine.style.display = "none";
+      }
     } else {
       verticalLine.style.display = "none";
       horizontalLine.style.display = "none";

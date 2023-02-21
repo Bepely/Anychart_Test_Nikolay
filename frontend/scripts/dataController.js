@@ -7,6 +7,10 @@ export let dataObj = {
     dataStatus: "000",
     cropDataFirst: false,
     cropDataLast: false,
+    crosshair: {
+      lineX: false,
+      lineY: false,
+    },
   },
   methods: {
     getData: () => {
@@ -23,7 +27,17 @@ export let dataObj = {
     },
     setCropLast: (e) => {
       dataObj.data.cropDataLast = e;
-    }
+    },
+
+    //set crosshair lines toggle setters
+    crosshair: {
+      setX: () => {
+        dataObj.data.crosshair.lineX = !dataObj.data.crosshair.lineX;
+      },
+      setY: () => {
+        dataObj.data.crosshair.lineY = !dataObj.data.crosshair.lineY;
+      },
+    },
   },
 };
 
