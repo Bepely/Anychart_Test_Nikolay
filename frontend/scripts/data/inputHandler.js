@@ -53,11 +53,31 @@ export const eventManager = () => {
     dataObj.methods.setCropLast(e);
   };
 
-  //Add Event Listners
+  // Store interval for reload value
+  let currentInterval;
 
-  //Enter event
+  const startInterval = () => {
+    currentInterval = setInterval(getData, 5000);
+    console.log(currentInterval);
+  };
+
+  const stopInterval = () => {
+    clearInterval(currentInterval);
+  };
+
+  // Add Event Listeners
+
+  // Enter event
   enter.addEventListener("click", () => {
     getData();
+    if (currentInterval) {
+      // if interval is running, stop it
+      stopInterval();
+      currentInterval = null;
+    } else {
+      // if interval is not running, start it
+      startInterval();
+    }
   });
 
   //Toggle event

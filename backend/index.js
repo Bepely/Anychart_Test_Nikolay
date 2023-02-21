@@ -12,7 +12,6 @@ setInterval(() => {
 //Handling /api/test request.
 app.get("/api/test", (req, res) => {
   //Sending an object, mocking sales per month
-
   res.send(serverData.getServerData());
 });
 
