@@ -1,5 +1,5 @@
-import { getText1, getLine, getRect } from "../shapes";
-import { dataObj } from "../../dataController";
+import { getText1, getLine, getRect } from "../../shapes";
+import { dataObj } from "../../../dataController";
 
 let toggleX = document.getElementById("yCrosshairToggle");
 let toggleY = document.getElementById("xCrosshairToggle");
@@ -13,12 +13,7 @@ toggleY.addEventListener("change", () => {
 
 //This script is to show tooltip, when it is hovered over the marker
 export const getCrosshair = (svg) => {
-  // create triggerBox
-  const triggerBox = getRect(1024 * 0.1, 0, 1024 * 0.8, 512 * 0.9);
-  triggerBox.style.cursor = "auto";
-  svg.appendChild(triggerBox);
-
-  const rectPos = triggerBox.getBoundingClientRect();
+  const rectPos = document.getElementById("triggerBox").getBoundingClientRect();
 
   // create the vertical and horizontal line and add it to the SVG
   const verticalLine = getLine(0, 0, 0, 0);

@@ -1,7 +1,8 @@
 import { linearDiagram } from "../linearDiagram/chart";
 import { adjusting } from "../linearDiagram/adjusting";
-import { getCrosshair } from "../crosshair/crosshair";
-import { getTooltip } from "../tooltip/tooltip";
+import { getCrosshair } from "../utility/crosshair/crosshair";
+import { createTooltip } from "../utility/tooltip/tooltip";
+import { setTriggerBox } from "../utility/triggerBox/triggerBox";
 
 import { yAxis, xAxis } from "../linearDiagram/axes";
 export const getLinearDiagram = (data) => {
@@ -14,7 +15,8 @@ export const getLinearDiagram = (data) => {
   linearDiagram(svg, viewportConfig.coordinates);
   yAxis(svg, viewportConfig.minY, viewportConfig.maxY, 512);
   xAxis(svg, data, 1024, 512);
+  setTriggerBox(svg, viewportConfig.minY, viewportConfig.maxY, 512);
 
   getCrosshair(svg);
-  getTooltip(svg);
+  createTooltip(svg, viewportConfig.minY, viewportConfig.maxY, 512);
 };

@@ -72,6 +72,7 @@ let getServerData = () => {
 };
 let totalSum = 0;
 let setServerData = () => {
+  totalSum = 0;
   data.data.forEach((e, i) => {
     if (e["x"] != "End") {
       e["value"] = Math.floor(Math.random() * 201) - 100;
